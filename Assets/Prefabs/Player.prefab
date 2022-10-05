@@ -169,12 +169,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 1
-  damage: 1
+  damage: 10
   exp: 0
   maxHp: 3
   curHp: 3
-  point: 0
-  gold: 0
+  point: 2
+  gold: 51
 --- !u!82 &6860316336100331205
 AudioSource:
   m_ObjectHideFlags: 0

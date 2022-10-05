@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 291209591681293786}
   - component: {fileID: 291209591681293785}
   - component: {fileID: -7844562815549854486}
+  - component: {fileID: -7785822058756907602}
   m_Layer: 0
   m_Name: enemy
   m_TagString: enemy
@@ -102,6 +103,7 @@ MonoBehaviour:
   curHp: 0
   coin: {fileID: 3594419610527321533, guid: 73980022b0698c54baa1d038644ef83e, type: 3}
   money: {fileID: 6323068727352987419, guid: d08dce8de2ce06f4696e67c27a2da14e, type: 3}
+  time: 0
 --- !u!61 &291209591681293785
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -149,3 +151,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &-7785822058756907602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291209591681293790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07b5d04fcee2299458ce79af80f98cd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

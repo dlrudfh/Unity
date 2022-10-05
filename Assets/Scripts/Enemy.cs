@@ -14,6 +14,9 @@ public class Enemy : MonoBehaviour
     private GameObject coin;
     [SerializeField]
     private GameObject money;
+    [SerializeField]
+    private float time;
+    private int direction = 1;
 
     public int MaxHp => maxHp;
     public int CurHp => curHp;
@@ -22,6 +25,18 @@ public class Enemy : MonoBehaviour
     {
         curHp = maxHp;
     }
+
+    private void Update()
+    {
+        time += Time.deltaTime;
+        transform.position += new Vector3(direction, 0, 0) * 1.0f * Time.deltaTime;
+        if (time > 2 )
+        {
+            direction = direction * (-1);
+            time = time - 2;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("bullet") || collision.CompareTag("chargedBullet"))

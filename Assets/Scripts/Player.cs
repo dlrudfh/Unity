@@ -42,6 +42,7 @@ public class Player : MonoBehaviour
             chargeComplete = false;
             GameObject bullet = Instantiate(bulletPrefab, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
             bullet.GetComponent<Movement2D>().Setup(10.0f, new Vector3((dir ? 1 : -1), 0, 0));
+            Destroy(bullet, 2.0f);
         }
         if (PlayerPrefs.GetInt("ChargeShot") == 1)
         {
@@ -56,6 +57,7 @@ public class Player : MonoBehaviour
                 {
                     GameObject charge = Instantiate(chargedBullet, new Vector3(transform.position.x, transform.position.y, 0), Quaternion.identity);
                     charge.GetComponent<Movement2D>().Setup(20.0f, new Vector3((dir ? 1 : -1), 0, 0));
+                    Destroy(charge, 1.0f);
                 }
                 else chargeComplete = true;
             }
