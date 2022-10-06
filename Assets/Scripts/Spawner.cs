@@ -8,6 +8,8 @@ public class Spawner : MonoBehaviour
     [SerializeField]
     private GameObject player;
     [SerializeField]
+    private GameObject notice;
+    [SerializeField]
     private GameObject enemyPrefab;
     [SerializeField]
     private GameObject enemyHp;
@@ -20,9 +22,9 @@ public class Spawner : MonoBehaviour
 
     private void Awake()
     {
-        PlayerPrefs.SetInt("ChargeShot", 0);
-        PlayerPrefs.SetInt("Dash", 0);
-        Instantiate(player, new Vector3(-4.6f, -2.21f, 0), Quaternion.identity);
+        //테스트용으로 스펙초기화
+        PlayerPrefs.SetInt("LV", 1);
+        PlayerPrefs.SetInt("XP", 0);
     }
 
     private void Start()

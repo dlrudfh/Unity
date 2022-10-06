@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -2115177772434118280}
   - component: {fileID: -6548075465152584471}
   - component: {fileID: 3219673904129598581}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: money
   m_TagString: money
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 5
 --- !u!61 &-2115177772434118280
 BoxCollider2D:
   m_ObjectHideFlags: 0

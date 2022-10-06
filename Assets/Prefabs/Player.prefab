@@ -168,13 +168,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b20cb18af91b4a48845e02bc4db26bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 1
-  damage: 10
-  exp: 0
-  maxHp: 3
-  curHp: 3
-  point: 2
-  gold: 51
+  level: 10
+  damage: 5
+  exp: 1
+  maxHp: 4
+  curHp: 4
+  point: 3
+  gold: 56
 --- !u!82 &6860316336100331205
 AudioSource:
   m_ObjectHideFlags: 0

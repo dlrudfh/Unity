@@ -3,25 +3,36 @@ using UnityEngine;
 
 public class Notice : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject player;
-    private int pastLevel = 1;
+    private int pastLevel;
+    private void Awake()
+    {
+        pastLevel = PlayerPrefs.GetInt("LV");
+    }
     private void Update()
     {
-        if(player.GetComponent<PlayerLevel>().level > pastLevel)
+        if(PlayerPrefs.GetInt("LV") > pastLevel)
         {
-            pastLevel = player.GetComponent<PlayerLevel>().level;
+            pastLevel = PlayerPrefs.GetInt("LV");
             if(pastLevel == 3)
             {
-                gameObject.GetComponent<TextMeshProUGUI>().text = "Now you can use charge shot!!";
+                gameObject.GetComponent<TextMeshProUGUI>().text = "Now you can use Charge attack!!";
+            }
+            else if (pastLevel == 5)
+            {
+                gameObject.GetComponent<TextMeshProUGUI>().text = "Now you can use Dash!!";
             }
             else gameObject.GetComponent<TextMeshProUGUI>().text = "LEVEL UP!!";
-            Invoke("text", 2f);
+            Invoke("clean", 2f);
         }
 
     }
 
-    public void text()
+    public void message(string texts)
+    {
+        gameObject.GetComponent<TextMeshProUGUI>().text = texts;
+    }
+
+    private void clean()
     {
         gameObject.GetComponent<TextMeshProUGUI>().text = " ";
     }

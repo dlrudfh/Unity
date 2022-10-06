@@ -5,42 +5,49 @@ public class PlayerLevel : MonoBehaviour
     public int level;
     public int damage;
     public int exp;
-    public int maxHp = 3;
+    public int maxHp;
     public int curHp;
-    public int point = 0;
-    public int gold = 0;
+    public int point;
+    public int gold;
+
+    public void Awake()
+    {
+        level = PlayerPrefs.GetInt("LV");
+        damage = PlayerPrefs.GetInt("DMG");
+        exp = PlayerPrefs.GetInt("XP");
+        maxHp = PlayerPrefs.GetInt("HP");
+        curHp = PlayerPrefs.GetInt("HP");
+        point = PlayerPrefs.GetInt("PTS");
+        gold = PlayerPrefs.GetInt("GOLD");
+    }
 
     public void GetExp(int enemyExp)
     {
+        level = PlayerPrefs.GetInt("LV");
         exp += enemyExp;
         if (exp >= level)
         {
             exp -= level;
-            level++;
-            point++;
+            PlayerPrefs.SetInt("LV", ++level);
+            PlayerPrefs.SetInt("PTS", ++point);
             curHp = maxHp;
-            if(level == 3)
-            {
-                PlayerPrefs.SetInt("ChargeShot", 1);
-            }
-            if (level == 5)
-            {
-                PlayerPrefs.SetInt("Dash", 1);
-            }
         }
+        PlayerPrefs.SetInt("XP", exp);
+        
     }
 
     public void GetGold(int enemyGold)
     {
         gold += enemyGold;
+        PlayerPrefs.SetInt("GOLD", gold);
     }
 
     public void DamageUp()
     {
         if (point > 0)
         {
-            damage++;
-            point--;
+            PlayerPrefs.SetInt("DMG", ++damage);
+            PlayerPrefs.SetInt("PTS", --point);
         }
         
     }
@@ -49,9 +56,9 @@ public class PlayerLevel : MonoBehaviour
     {
         if(point > 0)
         {
-            maxHp++;
+            PlayerPrefs.SetInt("HP", ++maxHp);
             curHp++;
-            point--;
+            PlayerPrefs.SetInt("PTS", --point);
         }
 
     }

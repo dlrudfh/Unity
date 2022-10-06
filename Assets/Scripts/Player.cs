@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
             bullet.GetComponent<Movement2D>().Setup(10.0f, new Vector3((dir ? 1 : -1), 0, 0));
             Destroy(bullet, 2.0f);
         }
-        if (PlayerPrefs.GetInt("ChargeShot") == 1)
+        if (PlayerPrefs.GetInt("LV") >= 3)
         {
             if(chargeComplete == false && Time.time - startTime >= 0.7f)
             {
@@ -62,7 +62,7 @@ public class Player : MonoBehaviour
                 else chargeComplete = true;
             }
         }
-        if (PlayerPrefs.GetInt("Dash") == 1)
+        if (PlayerPrefs.GetInt("LV") >= 5)
         {
             if (Input.GetKeyDown(dash)) GetComponent<Movement2D>().Dash(dir);
         }
