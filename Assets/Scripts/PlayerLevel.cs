@@ -16,7 +16,7 @@ public class PlayerLevel : MonoBehaviour
         damage = PlayerPrefs.GetInt("DMG");
         exp = PlayerPrefs.GetInt("XP");
         maxHp = PlayerPrefs.GetInt("HP");
-        curHp = PlayerPrefs.GetInt("HP");
+        curHp = PlayerPrefs.GetInt("CHP");
         point = PlayerPrefs.GetInt("PTS");
         gold = PlayerPrefs.GetInt("GOLD");
     }
@@ -36,12 +36,6 @@ public class PlayerLevel : MonoBehaviour
         
     }
 
-    public void GetGold(int enemyGold)
-    {
-        gold += enemyGold;
-        PlayerPrefs.SetInt("GOLD", gold);
-    }
-
     public void DamageUp()
     {
         if (point > 0)
@@ -57,7 +51,7 @@ public class PlayerLevel : MonoBehaviour
         if(point > 0)
         {
             PlayerPrefs.SetInt("HP", ++maxHp);
-            curHp++;
+            PlayerPrefs.SetInt("CHP", ++curHp);
             PlayerPrefs.SetInt("PTS", --point);
         }
 
@@ -66,6 +60,7 @@ public class PlayerLevel : MonoBehaviour
     public void TakeDamage(int enemyDmg)
     {
         curHp -= enemyDmg;
+        PlayerPrefs.SetInt("CHP", curHp);
         if (curHp <= 0)
         {
             SceneManager.LoadScene("GameOver");

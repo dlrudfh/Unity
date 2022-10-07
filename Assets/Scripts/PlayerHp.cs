@@ -8,7 +8,7 @@ public class PlayerHp : MonoBehaviour
 
     private void Update()
     {
-        GetComponent<Slider>().value = (float)player.GetComponent<PlayerLevel>().curHp
-                                     / (float)player.GetComponent<PlayerLevel>().maxHp;
+        GetComponent<Slider>().value = (float)PlayerPrefs.GetInt("CHP")
+                                     / (float)PlayerPrefs.GetInt("HP");
     }
 }

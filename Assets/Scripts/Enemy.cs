@@ -42,8 +42,8 @@ public class Enemy : MonoBehaviour
         if (collision.CompareTag("bullet") || collision.CompareTag("chargedBullet"))
         {
             if (collision.CompareTag("bullet")) Destroy(collision.gameObject);
-            if(collision.CompareTag("bullet")) curHp -= player.GetComponent<PlayerLevel>().damage;
-            else curHp -= player.GetComponent<PlayerLevel>().damage * 3;
+            if(collision.CompareTag("bullet")) curHp -= PlayerPrefs.GetInt("DMG");
+            else curHp -= PlayerPrefs.GetInt("DMG") * 3;
             StopCoroutine("HitColorAnimation");
             StartCoroutine("HitColorAnimation");
             if (curHp <= 0)

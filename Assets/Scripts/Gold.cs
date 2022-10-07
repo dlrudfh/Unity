@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class Gold : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject player;
     private bool alreadyPick;
     private AudioSource pick;
 
@@ -17,8 +15,8 @@ public class Gold : MonoBehaviour
         if (collision.CompareTag("Player") && alreadyPick == false)
         {
             alreadyPick = true;
-            if(CompareTag("coin")) player.GetComponent<PlayerLevel>().GetGold(1);
-            else player.GetComponent<PlayerLevel>().GetGold(5);
+            if(CompareTag("coin")) PlayerPrefs.SetInt("GOLD", PlayerPrefs.GetInt("GOLD")+1);
+            else PlayerPrefs.SetInt("GOLD", PlayerPrefs.GetInt("GOLD") + 5);
             Pick();
         }
     }
