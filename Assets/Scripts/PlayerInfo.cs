@@ -17,7 +17,7 @@ public class PlayerInfo : MonoBehaviour
         damage = PlayerPrefs.GetInt("DMG");
         exp = PlayerPrefs.GetInt("XP");
         maxHp = PlayerPrefs.GetInt("HP");
-        curHp = PlayerPrefs.GetInt("HP");
+        curHp = PlayerPrefs.GetInt("CHP");
         point = PlayerPrefs.GetInt("PTS");
         gold = PlayerPrefs.GetInt("GOLD");
         gameObject.GetComponent<TextMeshProUGUI>().text = "<color=#f000ff>Level : " + level + //ºÐÈ«

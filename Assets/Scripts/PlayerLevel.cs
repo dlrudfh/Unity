@@ -10,7 +10,7 @@ public class PlayerLevel : MonoBehaviour
     public int point;
     public int gold;
 
-    public void Awake()
+    public void Start()
     {
         level = PlayerPrefs.GetInt("LV");
         damage = PlayerPrefs.GetInt("DMG");
