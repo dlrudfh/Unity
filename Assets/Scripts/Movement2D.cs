@@ -38,7 +38,7 @@ public class Movement2D : MonoBehaviour
         {
 			doNotDash = true;
 			doNotJump = true;
-			gameObject.GetComponent<Rigidbody2D>().velocity = ((dir ? Vector2.right : Vector2.left)) * 15.0f;
+			gameObject.GetComponent<Rigidbody2D>().velocity = ((dir ? Vector2.right : Vector2.left)) * 20.0f;
 			gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
 			Invoke("DashEnd", 0.15f);
 		}
@@ -46,10 +46,10 @@ public class Movement2D : MonoBehaviour
 
 	private void DashEnd()
     {
+		doNotJump = false;
 		gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 		gameObject.GetComponent<Rigidbody2D>().gravityScale = 3;
-		doNotJump = false;
-		Invoke("DoNotDash", 0.5f);
+		Invoke("DoNotDash", 3.3f-(0.3f*PlayerPrefs.GetInt("DASH")));
 	}
 
 	private void DoNotDash()

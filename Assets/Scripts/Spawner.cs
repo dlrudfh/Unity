@@ -23,13 +23,15 @@ public class Spawner : MonoBehaviour
     private void Awake()
     {
         //테스트용으로 스펙초기화
-        PlayerPrefs.SetInt("LV", 1);
+        PlayerPrefs.SetInt("LV", 5);
         PlayerPrefs.SetInt("DMG", 1);
         PlayerPrefs.SetInt("XP", 0);
         PlayerPrefs.SetInt("CHP", 3);
         PlayerPrefs.SetInt("HP", 3);
-        PlayerPrefs.SetInt("PTS", 0);
+        PlayerPrefs.SetInt("PTS", 100);
         PlayerPrefs.SetInt("GOLD", 0);
+        PlayerPrefs.SetInt("CHARGESHOT", 0);
+        PlayerPrefs.SetInt("DASH", 0);
     }
 
     private void Start()

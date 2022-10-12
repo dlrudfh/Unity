@@ -9,28 +9,21 @@ public class PlayerLevel : MonoBehaviour
     public int curHp;
     public int point;
     public int gold;
-
-    public void Start()
-    {
-        level = PlayerPrefs.GetInt("LV");
-        damage = PlayerPrefs.GetInt("DMG");
-        exp = PlayerPrefs.GetInt("XP");
-        maxHp = PlayerPrefs.GetInt("HP");
-        curHp = PlayerPrefs.GetInt("CHP");
-        point = PlayerPrefs.GetInt("PTS");
-        gold = PlayerPrefs.GetInt("GOLD");
-    }
+    public int chargeshot;
+    public int dash;
 
     public void GetExp(int enemyExp)
     {
         level = PlayerPrefs.GetInt("LV");
+        exp = PlayerPrefs.GetInt("XP");
+
         exp += enemyExp;
         if (exp >= level)
         {
             exp -= level;
             PlayerPrefs.SetInt("LV", ++level);
             PlayerPrefs.SetInt("PTS", ++point);
-            curHp = maxHp;
+            PlayerPrefs.SetInt("CHP", PlayerPrefs.GetInt("HP"));
         }
         PlayerPrefs.SetInt("XP", exp);
         
@@ -38,6 +31,8 @@ public class PlayerLevel : MonoBehaviour
 
     public void DamageUp()
     {
+        point = PlayerPrefs.GetInt("PTS");
+        damage = PlayerPrefs.GetInt("DMG");
         if (point > 0)
         {
             PlayerPrefs.SetInt("DMG", ++damage);
@@ -48,10 +43,35 @@ public class PlayerLevel : MonoBehaviour
 
     public void HpUp()
     {
-        if(point > 0)
+        point = PlayerPrefs.GetInt("PTS");
+        maxHp = PlayerPrefs.GetInt("HP");
+        curHp = PlayerPrefs.GetInt("CHP");
+        if (point > 0)
         {
             PlayerPrefs.SetInt("HP", ++maxHp);
             PlayerPrefs.SetInt("CHP", ++curHp);
+            PlayerPrefs.SetInt("PTS", --point);
+        }
+
+    }
+    public void ChargeShotLVUP()
+    {
+        point = PlayerPrefs.GetInt("PTS");
+        chargeshot = PlayerPrefs.GetInt("CHARGESHOT");
+        if (point > 0 && chargeshot < 10)
+        {
+            PlayerPrefs.SetInt("CHARGESHOT", ++chargeshot);
+            PlayerPrefs.SetInt("PTS", --point);
+        }
+
+    }
+    public void DashLVUP()
+    {
+        point = PlayerPrefs.GetInt("PTS");
+        dash = PlayerPrefs.GetInt("DASH");
+        if (point > 0 && dash < 10)
+        {
+            PlayerPrefs.SetInt("DASH", ++dash);
             PlayerPrefs.SetInt("PTS", --point);
         }
 

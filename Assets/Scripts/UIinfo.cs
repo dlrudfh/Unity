@@ -6,6 +6,8 @@ public class UIinfo : MonoBehaviour
 {
     [SerializeField]
     private GameObject status;
+    [SerializeField]
+    private GameObject skill;
 
     // Update is called once per frame
     void Update()
@@ -13,7 +15,10 @@ public class UIinfo : MonoBehaviour
         if (Input.GetKeyDown("s"))
         {
             status.SetActive(!status.activeSelf);
-
+        }
+        else if (Input.GetKeyDown("k"))
+        {
+            skill.SetActive(!skill.activeSelf);
         }
     }
 }
